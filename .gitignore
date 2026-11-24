@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-apk/
+.cache/
+build/*unpacked*/
+**/bin/
+**/obj/
+.playwright-cli/
+*.user
+*.suo
+*.log

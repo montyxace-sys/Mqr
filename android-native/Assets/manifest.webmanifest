@@ -1,0 +1,14 @@
+{
+  "name": "QR Reader",
+  "short_name": "QRReader",
+  "description": "Lector de códigos QR - Escanea con cámara o sube imagen",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#2563eb",
+  "lang": "es",
+  "icons": [
+    { "src": "assets/img/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

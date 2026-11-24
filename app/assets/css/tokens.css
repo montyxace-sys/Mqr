@@ -1,0 +1,118 @@
+:root {
+  /* MSoft Design Tokens v1.1.0 - Dark theme (default) */
+  /* Colors */
+  --m-color-bg: #070b14;
+  --m-color-bg-alt: #0b1220;
+  --m-color-surface: #121a2d;
+  --m-color-surface-alt: #162036;
+  --m-color-surface-input: #0c1425;
+  --m-color-line: #22304a;
+  --m-color-line-soft: rgba(148, 163, 184, 0.18);
+  --m-color-line-input: #2a3a59;
+  --m-color-overlay: rgba(7, 11, 20, 0.75);
+
+  --m-color-text: #e7edf7;
+  --m-color-text-muted: #9fb3cd;
+  --m-color-text-subtle: #7b8aa0;
+  --m-color-text-on-brand: #ffffff;
+
+  --m-color-brand: #2563eb;
+  --m-color-brand-hover: #3b82f6;
+  --m-color-brand-active: #1d4ed8;
+  --m-color-accent-cyan: #06b6d4;
+  --m-color-accent-soft: rgba(59, 130, 246, 0.15);
+
+  --m-color-success: #22c55e;
+  --m-color-success-strong: #16a34a;
+  --m-color-success-bg: rgba(34, 197, 94, 0.15);
+  --m-color-warning: #f59e0b;
+  --m-color-warning-bg: rgba(245, 158, 11, 0.15);
+  --m-color-danger: #ef4444;
+  --m-color-danger-bg: rgba(239, 68, 68, 0.15);
+  --m-color-info: #3b82f6;
+  --m-color-info-bg: rgba(59, 130, 246, 0.15);
+  --m-color-focus-ring: rgba(59, 130, 246, 0.35);
+
+  /* Typography */
+  --m-font-display: "Sora", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --m-font-body: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+
+  --m-font-weight-regular: 400;
+  --m-font-weight-medium: 500;
+  --m-font-weight-semibold: 600;
+  --m-font-weight-bold: 700;
+  --m-font-weight-extrabold: 800;
+
+  --m-font-size-xs: 13px;
+  --m-font-size-sm: 14px;
+  --m-font-size-md: 16px;
+  --m-font-size-lg: 18px;
+  --m-font-size-xl: 20px;
+  --m-font-size-2xl: 24px;
+  --m-font-size-3xl: 32px;
+  --m-font-size-4xl: 40px;
+
+  --m-line-height-tight: 1.15;
+  --m-line-height-snug: 1.25;
+  --m-line-height-normal: 1.55;
+  --m-line-height-relaxed: 1.65;
+
+  --m-tracking-tight: -0.02em;
+  --m-tracking-normal: 0;
+
+  /* Spacing */
+  --m-space-1: 4px;
+  --m-space-2: 8px;
+  --m-space-3: 12px;
+  --m-space-4: 16px;
+  --m-space-5: 20px;
+  --m-space-6: 24px;
+  --m-space-8: 32px;
+  --m-space-10: 40px;
+  --m-space-12: 48px;
+  --m-space-16: 64px;
+
+  /* Radius */
+  --m-radius-sm: 10px;
+  --m-radius-md: 14px;
+  --m-radius-lg: 20px;
+  --m-radius-pill: 999px;
+
+  /* Shadow & layout */
+  --m-shadow-card: 0 20px 50px -30px rgba(0, 0, 0, 0.7);
+  --m-shadow-card-light: 0 24px 50px -30px rgba(15, 23, 42, 0.35);
+  --m-shadow-focus: 0 0 0 3px rgba(59, 130, 246, 0.35);
+  --m-container-max: 1200px;
+  --m-container-padding: 20px;
+
+  /* Motion */
+  --m-duration-fast: 150ms;
+  --m-duration-base: 200ms;
+  --m-ease: ease;
+}
+
+/* Optional light theme scope */
+[data-theme="light"] {
+  --m-color-bg: #ffffff;
+  --m-color-bg-alt: #f5f8fc;
+  --m-color-surface: #ffffff;
+  --m-color-surface-alt: #f8fbff;
+  --m-color-surface-input: #ffffff;
+  --m-color-line: #e3e9f2;
+  --m-color-line-soft: #eef2f8;
+  --m-color-line-input: #cfd9e6;
+  --m-color-overlay: rgba(15, 23, 42, 0.45);
+
+  --m-color-text: #0b1220;
+  --m-color-text-muted: #55647a;
+  --m-color-text-subtle: #7b8aa0;
+
+  --m-shadow-card: 0 24px 50px -30px rgba(15, 23, 42, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --m-duration-fast: 0ms;
+    --m-duration-base: 0ms;
+  }
+}

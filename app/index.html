@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MQr">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MQr - MSoft</title>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <span class="brand-mark">Q</span>
+      <span>MQr <span class="brand-sub">by MSoft</span></span>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="tabs" role="tablist" aria-label="Modos de MQr">
+      <button class="tab is-active" id="tab-read" role="tab" aria-selected="true" aria-controls="panel-read">Leer código</button>
+      <button class="tab" id="tab-create" role="tab" aria-selected="false" aria-controls="panel-create">Crear QR <span class="tab-new">Nuevo</span></button>
+    </div>
+
+    <section id="panel-read" class="panel" role="tabpanel" aria-labelledby="tab-read">
+      <div class="scanner-section">
+        <div id="reader" class="reader"></div>
+        <div class="controls">
+          <button id="btn-start" class="btn btn-primary">Iniciar escáner</button>
+          <button id="btn-stop" class="btn btn-soft" disabled>Detener</button>
+          <button id="btn-switch" class="btn btn-ghost" disabled>Cambiar cámara</button>
+        </div>
+      </div>
+
+      <section class="result-section" id="result-section" hidden>
+        <h2>Resultado</h2>
+        <div class="result-box" id="result-text"></div>
+        <div class="result-actions">
+          <button id="btn-copy" class="btn btn-primary">Copiar</button>
+          <button id="btn-open" class="btn btn-soft">Abrir enlace</button>
+          <button id="btn-clear" class="btn btn-ghost">Limpiar</button>
+        </div>
+        <div id="result-history" class="history"></div>
+      </section>
+
+      <section class="info-section">
+        <p class="muted small">Apunta la cámara al código QR. El escaneo es automático.</p>
+        <p class="muted small">Soporta: QR, Code 128, Code 39, EAN-13, UPC-A y más. También puedes subir una imagen.</p>
+      </section>
+    </section>
+
+    <section id="panel-create" class="panel" role="tabpanel" aria-labelledby="tab-create" hidden>
+      <div class="create-card">
+        <h2 class="section-title">Generar un código QR</h2>
+        <p class="muted small">Escribe un texto o un enlace y crea un QR listo para guardar o compartir. Funciona sin conexión.</p>
+
+        <label class="field-label" for="qr-input">Contenido</label>
+        <textarea id="qr-input" class="qr-input" rows="4" placeholder="https://msoft.com.es o cualquier texto…" maxlength="1200"></textarea>
+        <div class="field-meta"><span id="qr-count">0 / 1200</span><span id="qr-capacity">Capacidad estimada: M</span></div>
+
+        <div class="qr-options">
+          <div>
+            <label class="field-label" for="qr-size">Tamaño</label>
+            <select id="qr-size" class="qr-select">
+              <option value="256">256 px</option>
+              <option value="512" selected>512 px</option>
+              <option value="1024">1024 px</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="qr-level">Corrección de errores</label>
+            <select id="qr-level" class="qr-select">
+              <option value="L">L · bajo (más capacidad)</option>
+              <option value="M" selected>M · medio</option>
+              <option value="Q">Q · alto</option>
+              <option value="H">H · máximo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="result-actions create-actions">
+          <button id="btn-generate" class="btn btn-primary">Crear QR</button>
+          <button id="btn-download" class="btn btn-soft" disabled>Descargar PNG</button>
+          <button id="btn-copy-qr" class="btn btn-ghost" disabled>Copiar imagen</button>
+        </div>
+
+        <div id="qr-output" class="qr-output" hidden>
+          <canvas id="qr-canvas" width="512" height="512"></canvas>
+          <p class="muted small" id="qr-status">QR generado.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p><strong>MQr</strong> <span id="app-version-label">v1.1.0</span> · By MSoft · <a href="https://msoft.com.es" target="_blank" rel="noopener noreferrer">msoft.com.es</a></p>
+      <p class="muted small" style="margin-top:8px">Si te resulta útil, puedes apoyar el desarrollo:</p>
+      <div class="donate-links">
+        <a href="https://paypal.me/MsoftGenuino" target="_blank" rel="noopener noreferrer" class="btn btn-donate">Donar con PayPal</a>
+        <a href="https://liberapay.com/Msoft/donate" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Donar con Liberapay</a>
+      </div>
+    </footer>
+  </main>
+
+  <div id="donation-modal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="donation-title">
+      <button id="donation-close" class="modal-close" aria-label="Cerrar">×</button>
+      <div class="donation-icon">♥</div>
+      <h2 id="donation-title">¿Te resulta útil MQr?</h2>
+      <p>Un apoyo simbólico mantiene el desarrollo de las apps de MSoft. MQr funciona sin cuentas, sin analítica y sin conexión.</p>
+      <div class="donate-links">
+        <a href="https://paypal.me/MsoftGenuino" target="_blank" rel="noopener noreferrer" class="btn btn-donate">Donar con PayPal</a>
+        <a href="https://liberapay.com/Msoft/donate" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Donar con Liberapay</a>
+      </div>
+      <label class="donation-check"><input type="checkbox" id="donation-hide"> No volver a mostrar</label>
+      <button id="donation-later" class="btn btn-ghost donation-later">Ahora no</button>
+    </div>
+  </div>
+
+  <script src="assets/js/vendor/html5-qrcode.min.js"></script>
+  <script src="assets/js/vendor/qrcode.js"></script>
+  <script src="assets/js/vendor/qrcode-utf8.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
